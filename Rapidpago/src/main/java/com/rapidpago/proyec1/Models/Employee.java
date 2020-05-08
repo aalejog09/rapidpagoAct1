@@ -38,8 +38,8 @@ public class Employee {
 	@Column 
 	Person person;
 	
-	@OneToOne
 	@Column
+	@OneToOne
 	private Department department;
 	
 	@Column
