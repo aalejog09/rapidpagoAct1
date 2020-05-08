@@ -6,4 +6,5 @@ import com.rapidpago.proyec1.Models.Person;
 
 public interface PersonRepository extends CrudRepository<Person, Integer> {
 
+	
 }
