@@ -11,30 +11,19 @@
 	<div class="container">
 	<br>
 		<!-- titulo de la pagina -->
-		<h2>Agregar personas</h2>
+		<h2>Agregar Departamento</h2>
 		
-		<form action="#" th:action="@{/save}" th:object="${person}" method="post">
+		<form action="#" th:action="@{/department/save}" th:object="${department}" method="post">
 			
-			<!-- Nombre de la persona -->
+			<!-- Nombre del departamento -->
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
 				<input type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
 			</div>
 			
-			<!-- Id de la persona  -->
+			<!-- Id del departamento -->
 			<input type="hidden" th:field="*{id}" name="id" id="id">
 			
-			<!-- Apellido de la persona -->
-			<div class="form-group">
-				<label for="nombre">Apellido</label>
-				<input type="text" class="form-control" id="lastname" th:field="*{lastname}" name="lastname"> 
-			
-			</div>
-				<!-- Genero de la persona -->
-			<div class="form-group">
-				<label for="nombre">Genero</label>
-				<input type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
-			</div>
 			<!-- Guardar datos -->
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>

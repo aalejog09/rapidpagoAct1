@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Save - Person</title>
+
+<!--  Bootstrap CSS -->
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+	<br>
+		<!-- titulo de la pagina -->
+		<h2>Agregar personas</h2>
+		
+		<form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
+			
+			<!-- Datos Personales del empleado -->
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="person" th:field="*{Person}" name="person"> 
+			</div>
+			
+			<!-- Id de la persona  -->
+			<input type="hidden" th:field="*{id}" name="id" id="id">
+			
+			<!-- Department donde labora el empleado -->
+			<div class="form-group">
+				<label for="nombre">Departamento</label>
+				<input type="text" class="form-control" id="department" th:field="*{department}" name="department"> 
+			
+			</div>
+				<!-- Genero de la persona -->
+			<div class="form-group">
+				<label for="nombre">Genero</label>
+				<input type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
+			</div>
+			
+				<!-- Numero de identificacion de la persona -->
+			<div class="form-group">
+				<label for="nombre">Numero de identificacion</label>
+				<input type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
+			</div>
+			
+			<!-- Guardar datos -->
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html> 

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +19,13 @@ public class Employee {
 	
 
 
-	public Employee(Integer id, Integer personId, Integer departmentId, Integer experienceId, String address,
+	public Employee(Integer id, Person person, Department department, Experience experience, String address,
 			String admissionDate, Boolean status) {
 		super();
 		this.id = id;
-		this.personId = personId;
-		this.departmentId = departmentId;
-		this.experienceId = experienceId;
+		this.person = person;
+		this.department= department;
+		this.experience = experience;
 		this.address = address;
 		this.admissionDate = admissionDate;
 		Status = status;
@@ -35,17 +37,25 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
-	private Integer personId;
 	
+	@OneToOne   
+	@JoinColumn(name = "person_id")
+	private Person person;
+//	@Column
+//	private Integer personId;
 	
-	@Column
-	private Integer departmentId;
+	@OneToOne   
+	@JoinColumn(name = "department_id")
+	private Department department;
+//	@Column
+//	private Integer departmentId;
 	
-	
-	@Column
-	private Integer experienceId;
-	
+	@OneToOne   
+	@JoinColumn(name = "experience_id")
+	private Experience experience;
+//	@Column
+//	private Integer experienceId;
+//	
 	
 	@Column
 	private String address;
@@ -61,18 +71,12 @@ public class Employee {
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", personId=" + personId + ", departmentId=" + departmentId + ", experienceId="
-				+ experienceId + ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status
+		return "Employee [id=" + id + ", person=" + person + ", Department=" + department + ", Experience="
+				+ experience + ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status
 				+ "]";
 	}
 
-
-
-	
-	
-	
 	
 }

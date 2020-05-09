@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Person</title>
+
+<!--  Bootstrap CSS -->
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+	<div><a href="../"><h2>Empleados Rapidpago </h2></a> </div>
+		<br> 
+		<div>
+			<a href="person/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<br>
+			<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
+			<div th:if="${!list.isEmpty()}">
+				<h2>Departamentos de la empresa</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th></th>
+				 			<th></th>
+				 		</tr>
+				 	</thead>
+				 	<tbody>
+				 		<tr th:each="department : ${list}">
+				 			<td th:text="${department.name}">
+				 			<td><a class="btn btn-danger" th:href="@{/department/delete/{id}(id=${department.id})}">Eliminar</a></td>
+				 			<td><a class="btn btn-info" th:href="@{/department/save/{id}(id=${department.id})}">Editar</a></td>
+				 	</tbody>
+					
+				</table>
+			</div>
+			
+			
+	</div>
+</body>
+</html>

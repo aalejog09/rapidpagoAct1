@@ -2,42 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Person</title>
+<title>Empleados Rapidpago</title>
 
 <!--  Bootstrap CSS -->
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
 </head>
 <body>
 	<div class="container">
-		<br> 
-		<div>
-			<a href="/save/0" class="btn btn-primary">Agregar</a>
-		</div>
-		<br>
-			<h2 th:if="${list.isEmpty()}">No hay Personas</h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Personas</h2>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Genero</th>
-							<th></th>
-				 			<th></th>
-				 		</tr>
-				 	</thead>
-				 	<tbody>
-				 		<tr th:each="person : ${list}">
-				 			<td th:text="${person.name}">
-				 			<td th:text="${person.lastname}">
-				 			<td th:text="${person.gender}">
-				 			<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${person.id})}">Eliminar</a></td>
-				 			<td><a class="btn btn-info" th:href="@{/save/{id}(id=${person.id})}">Editar</a></td>
-				 	</tbody>
-					
-				</table>
-			</div>
+				<h2>Empleados Rapidpago</h2>
+			
+			<div><a href="/person">PERSONAS</a></div>
+			
+			<div><a href="/employee">EMPLEADOS</a></div>
 	</div>
 </body>
 </html>
