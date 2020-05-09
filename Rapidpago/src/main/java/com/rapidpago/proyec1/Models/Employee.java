@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +16,14 @@ public class Employee {
 	}
 	
 
-	public Employee(Integer id, Person person, Department department, Experience experience, String address,
+
+	public Employee(Integer id, Integer personId, Integer departmentId, Integer experienceId, String address,
 			String admissionDate, Boolean status) {
 		super();
 		this.id = id;
-		this.person = person;
-		this.department = department;
-		this.experience = experience;
+		this.personId = personId;
+		this.departmentId = departmentId;
+		this.experienceId = experienceId;
 		this.address = address;
 		this.admissionDate = admissionDate;
 		Status = status;
@@ -35,16 +35,17 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column 
-	Person person;
+	@Column
+	private Integer personId;
+	
 	
 	@Column
-	@OneToOne
-	private Department department;
+	private Integer departmentId;
+	
 	
 	@Column
-	@OneToOne
-	private Experience experience;
+	private Integer experienceId;
+	
 	
 	@Column
 	private String address;
@@ -54,83 +55,23 @@ public class Employee {
 	
 	@Column
 	private Boolean Status;
-	
 
 	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public Person getPerson() {
-		return person;
-	}
-
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
-
-	public Department getDepartment() {
-		return department;
-	}
-
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-
-	public Experience getExperience() {
-		return experience;
-	}
-
-
-	public void setExperience(Experience experience) {
-		this.experience = experience;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public String getAdmissionDate() {
-		return admissionDate;
-	}
-
-
-	public void setAdmissionDate(String admissionDate) {
-		this.admissionDate = admissionDate;
-	}
-
-
-	public Boolean getStatus() {
-		return Status;
-	}
-
-
-	public void setStatus(Boolean status) {
-		Status = status;
-	}
-
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", person=" + person + ", department=" + department + ", experience=" + experience
-				+ ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status + "]";
+		return "Employee [id=" + id + ", personId=" + personId + ", departmentId=" + departmentId + ", experienceId="
+				+ experienceId + ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status
+				+ "]";
 	}
+
+
+
+	
 	
 	
 	

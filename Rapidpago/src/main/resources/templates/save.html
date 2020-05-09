@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Save - Person</title>
+
+<!--  Bootstrap CSS -->
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+	<br>
+		<!-- titulo de la pagina -->
+		<h2>Agregar personas</h2>
+		
+		<form action="#" th:action="@{/save}" th:object="${person}" method="post">
+			
+			<!-- Nombre de la persona -->
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
+			</div>
+			
+			<!-- Id de la persona  -->
+			<input type="hidden" th:field="*{id}" name="id" id="id">
+			
+			<!-- Apellido de la persona -->
+			<div class="form-group">
+				<label for="nombre">Apellido</label>
+				<input type="text" class="form-control" id="lastname" th:field="*{lastname}" name="lastname"> 
+			
+			</div>
+				<!-- Genero de la persona -->
+			<div class="form-group">
+				<label for="nombre">Genero</label>
+				<input type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
+			</div>
+			<!-- Guardar datos -->
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html> 
