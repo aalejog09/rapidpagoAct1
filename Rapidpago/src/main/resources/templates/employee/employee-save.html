@@ -27,19 +27,19 @@
 			<!-- Department donde labora el empleado -->
 			<div class="form-group">
 				<label for="nombre">Departamento</label>
-				<input type="text" class="form-control" id="department" th:field="*{department}" name="department"> 
+				<input required type="text" class="form-control" id="department" th:field="*{department}" name="department"> 
 			
 			</div>
 				<!-- Genero de la persona -->
 			<div class="form-group">
 				<label for="nombre">Genero</label>
-				<input type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
+				<input required type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
 			</div>
 			
 				<!-- Numero de identificacion de la persona -->
 			<div class="form-group">
 				<label for="nombre">Numero de identificacion</label>
-				<input type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
+				<input required type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
 			</div>
 			
 			<!-- Guardar datos -->

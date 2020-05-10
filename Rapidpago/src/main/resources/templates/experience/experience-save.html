@@ -11,16 +11,16 @@
 	<div class="container">
 	<br>
 		<!-- titulo de la pagina -->
-		<h2>Agregar Departamento</h2>
+		<h2>Experciencia</h2>
 		
-		<form action="#" th:action="@{/department/save}" th:object="${department}" method="post">
+		<form action="#" th:action="@{/experience/save}" th:object="${experience}" method="post">
 			
-			<!-- Nombre del departamento -->
+			<!-- descripcion de la experciencia -->
 			<div class="form-group">
-				<label for="nombre">Nombre</label>
-				<input required type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
+				<label for="nombre">Descripcion</label>
+				<input required type="text" class="form-control" id="description" th:field="*{description}" name="description"> 
 			</div>
-			<!-- Id del departamento -->
+			<!-- Id de la experciencia -->
 			<input type="hidden" th:field="*{id}" name="id" id="id">
 			
 			<!-- Guardar datos -->

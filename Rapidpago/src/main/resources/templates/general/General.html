@@ -11,23 +11,30 @@
 	<div class="container">
 	<br>
 		<!-- titulo de la pagina -->
-		<h2>Agregar personas</h2>
+		<h2>AGREGAR EMPLEADO</h2>
 		
-		<form action="#" th:action="@{/person/save}" th:object="${person}" method="post">
+		<form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
 			
-			<!-- Nombre de la persona -->
+			<!-- Datos Personales del empleado -->
+			<h3>Datos personales</h3>
+			<!-- Nombre -->
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input required type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
+				<input type="text" class="form-control" id="employee.person.name" th:field="*{employee.person.name}" name="employee.person.name"> 
+			</div>
+			<!-- Apellido -->
+			<div class="form-group">
+				<label for="nombre">Apellido</label>
+				<input type="text" class="form-control" id="employee.person.lastname" th:field="*{employee.person.lastname}" name="employee.person.lastname"> 
 			</div>
 			
 			<!-- Id de la persona  -->
 			<input type="hidden" th:field="*{id}" name="id" id="id">
 			
-			<!-- Apellido de la persona -->
+			<!-- Department donde labora el empleado -->
 			<div class="form-group">
-				<label for="nombre">Apellido</label>
-				<input required type="text" class="form-control" id="lastname" th:field="*{lastname}" name="lastname"> 
+				<label for="nombre">Departamento</label>
+				<input required type="text" class="form-control" id="department" th:field="*{department}" name="department"> 
 			
 			</div>
 				<!-- Genero de la persona -->
