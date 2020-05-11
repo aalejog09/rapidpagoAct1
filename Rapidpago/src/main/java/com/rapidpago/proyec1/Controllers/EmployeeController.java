@@ -17,6 +17,7 @@ import com.rapidpago.proyec1.Models.Person;
 import com.rapidpago.proyect1.Services.DepartmentService;
 import com.rapidpago.proyect1.Services.EmployeeService;
 import com.rapidpago.proyect1.Services.ExperienceService;
+import com.rapidpago.proyect1.Services.PersonService;
 
 @Controller
 public class EmployeeController {
@@ -30,6 +31,9 @@ public class EmployeeController {
 		
 		@Autowired
 		private ExperienceService experienceServices;
+		
+		@Autowired
+		private PersonService personServices;
 
 
 		@RequestMapping("/employee")
@@ -38,24 +42,20 @@ public class EmployeeController {
 			return "employee/employee-list";
 			//Vista a retornar= lista de empleado.
 		}
-		
 		@GetMapping("/employee/save/{id}")
 		public String showSaveEmployee( @PathVariable("id") Integer id, Model model) {
 			List<Department> departmentList =  departmentServices.getAll();
 			List<Experience> experienceList =  experienceServices.getAll();
-			Person person = new Person();
 			Department department = new Department();
 			Experience experience = new Experience();
 			model.addAttribute("Title", "Form: Employee");
 			model.addAttribute("departments", departmentList);
 			model.addAttribute("experiences", experienceList);
-			model.addAttribute("person", person);
 			model.addAttribute("department", department);
 			model.addAttribute("experience", experience);
 			if(id != null && id != 0) {
 				//para editar empleado
 				model.addAttribute("employee", employeeServices.get(id));
-				
 			} else {
 				//para crear empleado
 				model.addAttribute("employee", new Employee());

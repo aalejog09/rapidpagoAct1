@@ -16,19 +16,22 @@ public class Employee {
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 
-	public Employee(Integer id, Person person, Department department, Experience experience, String address,
-			String admissionDate, Boolean status) {
+
+	public Employee(Integer id, String name, String lastname, String gender, Integer identificationNum,
+			Department department, Experience experience, String address, String admissionDate, Boolean available) {
 		super();
 		this.id = id;
-		this.person = person;
-		this.department= department;
+		this.name = name;
+		this.lastname = lastname;
+		this.gender = gender;
+		this.identificationNum = identificationNum;
+		this.department = department;
 		this.experience = experience;
 		this.address = address;
 		this.admissionDate = admissionDate;
-		Status = status;
+		Available = available;
 	}
 
 
@@ -37,25 +40,25 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column
+	private String name;
 	
-	@OneToOne   
-	@JoinColumn(name = "person_id")
-	private Person person;
-//	@Column
-//	private Integer personId;
+	@Column
+	private String lastname;
+	
+	@Column
+	private String gender;
+	
+	@Column
+	private Integer identificationNum;
 	
 	@OneToOne   
 	@JoinColumn(name = "department_id")
 	private Department department;
-//	@Column
-//	private Integer departmentId;
 	
 	@OneToOne   
 	@JoinColumn(name = "experience_id")
 	private Experience experience;
-//	@Column
-//	private Integer experienceId;
-//	
 	
 	@Column
 	private String address;
@@ -64,89 +67,99 @@ public class Employee {
 	private String admissionDate;
 	
 	@Column
-	private Boolean Status;
+	private Boolean Available;
 
+	
 	public Integer getId() {
 		return id;
 	}
-
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
-	public Person getPerson() {
-		return person;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setName(String name) {
+		this.name = name;
 	}
 
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Integer getIdentificationNum() {
+		return identificationNum;
+	}
+
+	public void setIdentificationNum(Integer identificationNum) {
+		this.identificationNum = identificationNum;
+	}
 
 	public Department getDepartment() {
 		return department;
 	}
 
-
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-
 
 	public Experience getExperience() {
 		return experience;
 	}
 
-
 	public void setExperience(Experience experience) {
 		this.experience = experience;
 	}
-
 
 	public String getAddress() {
 		return address;
 	}
 
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-
 	public String getAdmissionDate() {
 		return admissionDate;
 	}
-
-
 
 	public void setAdmissionDate(String admissionDate) {
 		this.admissionDate = admissionDate;
 	}
 
 
-
-	public Boolean getStatus() {
-		return Status;
+	public Boolean getAvailable() {
+		return Available;
 	}
 
 
-
-	public void setStatus(Boolean status) {
-		Status = status;
+	public void setAvailable(Boolean available) {
+		Available = available;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", person=" + person + ", department=" + department + ", experience=" + experience
-				+ ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status + "]";
+		return "Employee [id=" + id + ", name=" + name + ", lastname=" + lastname + ", gender=" + gender
+				+ ", identificationNum=" + identificationNum + ", department=" + department + ", experience="
+				+ experience + ", address=" + address + ", admissionDate=" + admissionDate + ", available=" + Available + "]";
 	}
-
 
 
 	

@@ -16,48 +16,50 @@
 		<div class="card bg-light ">
 			<div class="card-header bg-dark text-white" th:text="${Title}"></div>
 			<div class="card-body">
-
 				<form action="#" th:action="@{/person/save}" th:object="${person}"
 					method="post">
 					<!-- Datos Personales del empleado -->
 					<h3>Datos personales</h3>
 					<!-- Nombres de la persona -->
 					<div class="form-group row">
-						<label class="col-md-2" for="name" 
-							th:field="*{name}">Nombres</label>
-							<input type="text" class="form-control form-control-sm col-md-6"
-							id="person.name" placeholder="Nombres de la persona"> <small></small>
+						<label class="col-md-2" for="name">Nombres</label>
+						<input required th:field="*{name}" 
+							   type="text" 
+							   class="form-control form-control-sm col-md-6" id="person.name" 
+							   placeholder="Nombres de la persona">
 					</div>
 					<!-- Apellidos de la persona -->
 					<div class="form-group row">
-						<label class="col-md-2" for="lastname"
-							th:field="*{lastname}">Apellidos</label> 
-							<input type="text"
-							class="form-control form-control-sm col-md-6"
-							id="person.lastname" placeholder="Apellidos de la persona">
+						<label for="lastname" class="col-md-2">Apellidos</label> 
+						<input required th:field="*{lastname}" 
+							   type="text"
+							   class="form-control form-control-sm col-md-6"
+							   id="person.lastname" placeholder="Apellidos de la persona">
 					</div>
 
 					<!-- Genero de la persona -->
-					<div class="form-group row">
-						<label class="col-md-2" for="gender" 
-							th:field="*{gender}">Genero</label>
-							<input type="text" 
-							class="form-control form-control-sm col-md-6"
-							id="person.gender" placeholder="Genero de la persona"> <small></small>
-					</div>
-
+					
+					<label for="gender">Genero de la persona</label> 
+							<select class="form-control form-control-sm col-md-6" 
+									id="gender" 
+									th:field="*{gender}">
+							<option th:value="Masculino" 
+									th:text="Masculino" />
+							<option th:value="Femenino" 
+									th:text="Femenino"/>
+						</select>
+						
 					<!-- Numero de identificacion de la persona -->
 
 					<div class="form-group row">
 						<label class="col-md-2" for="identificationNum"
-							th:field="*{identificationNum}">Numero de identificacion</label>
-							<input type="text" class="form-control form-control-sm col-md-6"
-							id="person.identificationNum" placeholder="Numero de identificacion de la persona"> <small></small>
+							 id="identificationNum">Numero de identificacion</label>
+							<input required th:field="*{identificationNum}" 
+							type="number" class="form-control form-control-sm col-md-6"
+							id="identificationNum" placeholder="Numero de identificacion de la persona"> <small></small>
 					</div>
-
 					<div class="card-footer bg-dark">
-						<input type="submit" class="btn btn-primary btn-sm"
-							value="Guardar" />
+						<input type="submit" class="btn btn-primary btn-sm" value="Guardar" />
 					</div>
 
 				</form>

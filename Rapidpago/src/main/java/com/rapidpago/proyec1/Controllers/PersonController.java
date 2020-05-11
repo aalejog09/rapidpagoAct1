@@ -1,5 +1,6 @@
 package com.rapidpago.proyec1.Controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import com.rapidpago.proyect1.Services.PersonService;
 
 @Controller
 public class PersonController {
-
+		
 
 		@Autowired
 		private PersonService personServices;
@@ -41,7 +42,7 @@ public class PersonController {
 		@PostMapping("/person/save")
 		public String savePerson(Person person, Model model) {
 			personServices.save(person);
-			return "redirect:/person";
+			return "redirect:/employee/save";
 			
 		}
 

@@ -18,45 +18,10 @@
 			<div class="card-body">
 				<form th:action="@{/employee/save}" th:object="${employee}" method="post">
 					<!-- Datos Personales del empleado -->
-				<div class="form-group row">
-						<label class="col-md-2" for="name">Nombres</label>
-						<input required th:field="*{name}" 
-							   type="text" 
-							   class="form-control form-control-sm col-md-6" id="name" 
-							   placeholder="Nombres del empleado">
-					</div>
-					<!-- Apellidos de la persona -->
-					<div class="form-group row">
-						<label for="lastname" class="col-md-2">Apellidos</label> 
-						<input required th:field="*{lastname}" 
-							   type="text"
-							   class="form-control form-control-sm col-md-6"
-							   id="person.lastname" placeholder="Apellidos de la persona">
-					</div>
-
-					<!-- Genero de la persona -->
-					
-					<label for="gender">Genero de la persona</label> 
-							<select class="form-control form-control-sm col-md-6" 
-									id="gender" 
-									th:field="*{gender}">
-							<option th:value="Masculino" 
-									th:text="Masculino" />
-							<option th:value="Femenino" 
-									th:text="Femenino"/>
-						</select>
-						
-					<!-- Numero de identificacion de la persona -->
-
-					<div class="form-group row">
-						<label class="col-md-2" for="identificationNum"
-							 id="identificationNum">Numero de identificacion</label>
-							<input required th:field="*{identificationNum}" 
-							type="number" class="form-control form-control-sm col-md-6"
-							id="identificationNum" placeholder="Numero de identificacion del empleado"> <small></small>
-					</div>
+				
 					
 					 <h3>Datos laborales</h3>
+					
 					<!--Department donde labora el empleado -->
 					
 					<div class="form-group">
@@ -91,24 +56,24 @@
 							   placeholder="Direccion  del empleado"> <small></small>
 					</div>
 					
-					<!-- Disponibilidad del empleado -->
-					<label for="available">Disponibilidad del empleado</label> 
-							<select class="form-control form-control-sm col-md-6" 
-									id="available" 
-									th:field="*{available}">
-							<option th:value="1" 
-									th:text="Habilitado" />
-							<option th:value="0" 
-									th:text="Deshabilitado"/>
-							</select>
+					<!-- Estatus  del empleado -->
+					<div class="form-group row">
+						<label class="col-md-2" for="status" >Estado del empleado</label>
+						<input type="text"
+							   th:field="*{status}"
+							   class="form-control form-control-sm col-md-6"
+							   id="status"
+							   placeholder="status"> <small></small>
+					</div>
 					
 					<!-- Fecha de ingreso del empleado -->
 					<div class="form-group row">
 						<label class="col-md-2" for="admissionDate" >Fecha de ingreso del empleado</label>
-						<input type="date" name="admissionDate" 
-						step="1" min="2007-01-01" max="2050-12-31" value="2020-01-01"
-						th:field="*{admissionDate}"
-						placeholder="AAAA-MM-DD">
+						<input type="text"
+							   th:field="*{admissionDate}"
+							   class="form-control form-control-sm col-md-6"
+							   id="admissionDate"
+							   placeholder="DD-MM-AAAA"> <small></small>
 					</div>
 					
 					<div class="card-footer bg-dark">
