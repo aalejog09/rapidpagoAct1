@@ -9,42 +9,60 @@
 </head>
 <body>
 	<div class="container">
-	<br>
+		<br>
 		<!-- titulo de la pagina -->
 		<h2>Agregar personas</h2>
-		
-		<form action="#" th:action="@{/person/save}" th:object="${person}" method="post">
-			
-			<!-- Nombre de la persona -->
-			<div class="form-group">
-				<label for="nombre">Nombre</label>
-				<input required type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
+
+		<div class="card bg-light ">
+			<div class="card-header bg-dark text-white" th:text="${Title}"></div>
+			<div class="card-body">
+
+				<form action="#" th:action="@{/person/save}" th:object="${person}"
+					method="post">
+					<!-- Datos Personales del empleado -->
+					<h3>Datos personales</h3>
+					<!-- Nombres de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="name" 
+							th:field="*{name}">Nombres</label>
+							<input type="text" class="form-control form-control-sm col-md-6"
+							id="person.name" placeholder="Nombres de la persona"> <small></small>
+					</div>
+					<!-- Apellidos de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="lastname"
+							th:field="*{lastname}">Apellidos</label> 
+							<input type="text"
+							class="form-control form-control-sm col-md-6"
+							id="person.lastname" placeholder="Apellidos de la persona">
+					</div>
+
+					<!-- Genero de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="gender" 
+							th:field="*{gender}">Genero</label>
+							<input type="text" 
+							class="form-control form-control-sm col-md-6"
+							id="person.gender" placeholder="Genero de la persona"> <small></small>
+					</div>
+
+					<!-- Numero de identificacion de la persona -->
+
+					<div class="form-group row">
+						<label class="col-md-2" for="identificationNum"
+							th:field="*{identificationNum}">Numero de identificacion</label>
+							<input type="text" class="form-control form-control-sm col-md-6"
+							id="person.identificationNum" placeholder="Numero de identificacion de la persona"> <small></small>
+					</div>
+
+					<div class="card-footer bg-dark">
+						<input type="submit" class="btn btn-primary btn-sm"
+							value="Guardar" />
+					</div>
+
+				</form>
 			</div>
-			
-			<!-- Id de la persona  -->
-			<input type="hidden" th:field="*{id}" name="id" id="id">
-			
-			<!-- Apellido de la persona -->
-			<div class="form-group">
-				<label for="nombre">Apellido</label>
-				<input required type="text" class="form-control" id="lastname" th:field="*{lastname}" name="lastname"> 
-			
-			</div>
-				<!-- Genero de la persona -->
-			<div class="form-group">
-				<label for="nombre">Genero</label>
-				<input required type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
-			</div>
-			
-				<!-- Numero de identificacion de la persona -->
-			<div class="form-group">
-				<label for="nombre">Numero de identificacion</label>
-				<input required type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
-			</div>
-			
-			<!-- Guardar datos -->
-			<button type="submit" class="btn btn-success">Guardar</button>
-		</form>
+		</div>
 	</div>
 </body>
 </html> 

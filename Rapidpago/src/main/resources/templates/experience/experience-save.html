@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Save - Person</title>
+<title>Save - Experience</title>
 
 <!--  Bootstrap CSS -->
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
@@ -12,7 +12,8 @@
 	<br>
 		<!-- titulo de la pagina -->
 		<h2>Experciencia</h2>
-		
+		<!-- Id de la experciencia -->
+		<input type="hidden" th:field="*{id}" name="id" id="id">
 		<form action="#" th:action="@{/experience/save}" th:object="${experience}" method="post">
 			
 			<!-- descripcion de la experciencia -->
@@ -20,9 +21,6 @@
 				<label for="nombre">Descripcion</label>
 				<input required type="text" class="form-control" id="description" th:field="*{description}" name="description"> 
 			</div>
-			<!-- Id de la experciencia -->
-			<input type="hidden" th:field="*{id}" name="id" id="id">
-			
 			<!-- Guardar datos -->
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>

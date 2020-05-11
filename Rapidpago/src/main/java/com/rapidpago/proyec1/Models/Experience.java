@@ -18,16 +18,15 @@ public class Experience {
 	}
 	
 	public Experience() {
-		// TODO Auto-generated constructor stub
 	}
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	private Integer id;
 	
 	@Column
-	String description;
+	private String description;
 
 	public Integer getId() {
 		return id;

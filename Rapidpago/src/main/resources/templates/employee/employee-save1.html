@@ -11,21 +11,14 @@
 	<div class="container">
 	<br>
 		<!-- titulo de la pagina -->
-		<h2>AGREGAR EMPLEADO</h2>
+		<h2>Agregar personas</h2>
 		
 		<form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
 			
 			<!-- Datos Personales del empleado -->
-			<h3>Datos personales</h3>
-			<!-- Nombre -->
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" class="form-control" id="employee.person.name" th:field="*{employee.person.name}" name="employee.person.name"> 
-			</div>
-			<!-- Apellido -->
-			<div class="form-group">
-				<label for="nombre">Apellido</label>
-				<input type="text" class="form-control" id="employee.person.lastname" th:field="*{employee.person.lastname}" name="employee.person.lastname"> 
+				<input type="text" class="form-control" id="person" th:field="*{Person}" name="person"> 
 			</div>
 			
 			<!-- Id de la persona  -->
@@ -40,13 +33,13 @@
 				<!-- Genero de la persona -->
 			<div class="form-group">
 				<label for="nombre">Genero</label>
-				<input required type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
+				<input required type="text" class="form-control" id="gender" th:field="*{person.gender}" name="gender"> 
 			</div>
 			
 				<!-- Numero de identificacion de la persona -->
 			<div class="form-group">
 				<label for="nombre">Numero de identificacion</label>
-				<input required type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
+				<input required type="text" class="form-control" id="identificationNum" th:field="*{person.identificationNum}" name="identificationNum"> 
 			</div>
 			
 			<!-- Guardar datos -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Save - Employee</title>
+
+<!--  Bootstrap CSS -->
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+	<br>
+		<!-- titulo de la pagina -->
+		<h2>AGREGAR EMPLEADO</h2>
+		
+		<form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
+			<!-- Id del empleado -->
+			<input type="hidden" th:field="*{id}" name="id" id="id">
+			
+			<!-- Datos Personales del empleado -->
+			<h3>Datos personales</h3>
+			
+			<!-- Nombre -->
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="person.name" th:field="*{person.name}" name="person.name"> 
+			</div>
+			
+			<!-- Apellido -->
+			<div class="form-group">
+				<label for="nombre">Apellido</label>
+				<input type="text" class="form-control" id="person.lastname" th:field="*{person.lastname}" name="person.lastname"> 
+			</div>
+			
+			<!-- Genero de la persona -->
+			<div class="form-group">
+				<label for="nombre">Genero</label>
+				<input required type="text" class="form-control" id="person.gender" th:field="*{person.gender}" name="person.gender"> 
+			</div>
+			<!-- Numero de identificacion de la persona -->
+			<div class="form-group">
+				<label for="nombre">Numero de identificacion</label>
+				<input required type="text" class="form-control" id="person.identificationNum" th:field="*{person.identificationNum}" name="person.identificationNum"> 
+			</div>
+			
+			<!-- Datos laborales -->
+			<!-- Department donde labora el empleado -->
+			<div class="form-group">
+				<label for="nombre">Departamento</label>
+				<input required type="text" class="form-control" id="department.name" th:field="*{department.name}" name="department"> 
+			
+			</div>
+	
+			<!-- Experiencia del empleado -->
+			<div class="form-group">
+				<label for="nombre">Experiencia</label>
+				<input required type="text" class="form-control" id="experience.description" th:field="*{experience.description}" name="experience.description"> 
+			</div>
+			
+			<!-- Direccion del empleado-->
+			<div class="form-group">
+				<label for="nombre">Direccion</label>
+				<input required type="text" class="form-control" id="address" th:field="*{address}" name="address"> 
+			</div>
+			
+			<!-- Datos de ingreso -->
+			<div class="form-group">
+				<label for="nombre">Fecha de ingreso</label>
+				<input required type="text" class="form-control" id="admissionDate" th:field="*{admissionDate}" name="admissionDate"> 
+			</div>
+			<!-- Estado del empleado -->
+			<div class="form-group">
+				<label for="nombre">Estado del empleado</label>
+				<input required type="text" class="form-control" id="status" th:field="*{status}" name="status"> 
+			</div>
+			
+			<!-- Guardar datos -->
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html> 

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Save - Person</title>
+<title>Save - Employee</title>
 
 <!--  Bootstrap CSS -->
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
@@ -11,40 +11,79 @@
 	<div class="container">
 	<br>
 		<!-- titulo de la pagina -->
-		<h2>Agregar personas</h2>
-		
-		<form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
-			
-			<!-- Datos Personales del empleado -->
-			<div class="form-group">
-				<label for="nombre">Nombre</label>
-				<input type="text" class="form-control" id="person" th:field="*{Person}" name="person"> 
+		<h2>AGREGAR EMPLEADO</h2>
+
+		<div class="card bg-light " >
+			<div class="card-header bg-dark text-white" th:text="${Title}"></div>
+			<div class="card-body">
+				<form th:action="@{/employee/save}" th:object="${employee}" method="post">
+					<!-- Datos Personales del empleado -->
+					<h3>Datos personales</h3>
+					<!-- Nombres de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="name" th:field="${person.name}" >Nombres</label> <input
+							type="text" class="form-control form-control-sm col-md-6"
+							id="person.name" placeholder="Nombres de la persona"> <small></small>
+					</div>
+
+					<!-- Apellidos de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="person.lastname" th:field="${person.lastname}" >Apellidos</label> <input
+							type="text" class="form-control form-control-sm col-md-6"
+							id="person.lastname" placeholder="Apellidos de la persona">
+						<small></small>
+					</div>
+
+					<!-- Genero de la persona -->
+					<div class="form-group row">
+						<label class="col-md-2" for="person.gender" th:field="${person.gender}" >Genero</label> <input
+							type="text" class="form-control form-control-sm col-md-6"
+							id="person.gender" placeholder="Genero de la persona"> <small></small>
+					</div>
+
+					<!-- Numero de identificacion de la persona -->
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="identificationNum" th:field="${person.identificationNum}">Numero
+							de identificacion</label> <input type="text"
+							class="form-control form-control-sm col-md-6"
+							id="person.identificationNum"
+							placeholder="Numero de identificacion de la persona"> <small></small>
+					</div>
+					
+					 <h3>Datos laborales</h3>
+					
+					<!--Department donde labora el empleado -->
+					
+					<div class="form-group">
+						<label for="nombre">Departamento</label> 
+							<select class="form-control form-control-sm col-md-6" 
+							id="employee.department" th:field="${department}" >
+							<option th:each="department: ${departments}"
+							th:value="${department.id}"
+							th:text="${department.name}"/>
+						</select>
+						
+					</div>
+					
+					<!-- Experiencia del empleado -->
+					<div class="form-group">
+						<label for="nombre">Experiencia</label> 
+							<select class="form-control form-control-sm col-md-6" 
+							id="employee.experience" th:field="${experience}" >
+							<option th:each="experience: ${experiences}"
+							th:value="${experience.id}"
+							th:text="${experience.description}"/>
+						</select>
+					</div>
+					
+					<div class="card-footer bg-dark">
+						<input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+					</div>
+					
+				</form>
+				</div>
 			</div>
-			
-			<!-- Id de la persona  -->
-			<input type="hidden" th:field="*{id}" name="id" id="id">
-			
-			<!-- Department donde labora el empleado -->
-			<div class="form-group">
-				<label for="nombre">Departamento</label>
-				<input required type="text" class="form-control" id="department" th:field="*{department}" name="department"> 
-			
-			</div>
-				<!-- Genero de la persona -->
-			<div class="form-group">
-				<label for="nombre">Genero</label>
-				<input required type="text" class="form-control" id="gender" th:field="*{gender}" name="gender"> 
-			</div>
-			
-				<!-- Numero de identificacion de la persona -->
-			<div class="form-group">
-				<label for="nombre">Numero de identificacion</label>
-				<input required type="text" class="form-control" id="identificationNum" th:field="*{identificationNum}" name="identificationNum"> 
-			</div>
-			
-			<!-- Guardar datos -->
-			<button type="submit" class="btn btn-success">Guardar</button>
-		</form>
 	</div>
 </body>
 </html> 

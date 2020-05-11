@@ -28,19 +28,19 @@ public class Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	private Integer id;
 	
 	@Column
-	String name;
+	private String name;
 	
 	@Column
-	String lastname;
+	private String lastname;
 	
 	@Column
-	Integer identificationNum;
+	private Integer identificationNum;
 	
 	@Column
-	String gender;
+	private String gender;
 
 	public Integer getId() {
 		return id;
@@ -87,7 +87,7 @@ public class Person {
 		return "Person [id=" + id + ", name=" + name + ", lastname=" + lastname + ", identificationNum="
 				+ identificationNum + ", gender=" + gender + "]";
 	}
-	
+
 	
 
 }

@@ -23,12 +23,12 @@ public class Department {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	public Integer id;
 	
 	@Column
-	String name;
+	private String name;
 
-	public Integer getId() {
+	private Integer getId() {
 		return id;
 	}
 

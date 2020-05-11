@@ -71,12 +71,83 @@ public class Employee {
 	}
 
 
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public Person getPerson() {
+		return person;
+	}
+
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+
+	public Department getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+
+	public Experience getExperience() {
+		return experience;
+	}
+
+
+	public void setExperience(Experience experience) {
+		this.experience = experience;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+	public String getAdmissionDate() {
+		return admissionDate;
+	}
+
+
+
+	public void setAdmissionDate(String admissionDate) {
+		this.admissionDate = admissionDate;
+	}
+
+
+
+	public Boolean getStatus() {
+		return Status;
+	}
+
+
+
+	public void setStatus(Boolean status) {
+		Status = status;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", person=" + person + ", Department=" + department + ", Experience="
-				+ experience + ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status
-				+ "]";
+		return "Employee [id=" + id + ", person=" + person + ", department=" + department + ", experience=" + experience
+				+ ", address=" + address + ", admissionDate=" + admissionDate + ", Status=" + Status + "]";
 	}
+
+
 
 	
 }

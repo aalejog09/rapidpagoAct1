@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Save - Person</title>
+<title>Save - Department</title>
 
 <!--  Bootstrap CSS -->
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
@@ -12,17 +12,14 @@
 	<br>
 		<!-- titulo de la pagina -->
 		<h2>Agregar Departamento</h2>
-		
+		<!-- Id del departamento -->
+		<input type="hidden" th:field="*{id}" name="id" id="id">
 		<form action="#" th:action="@{/department/save}" th:object="${department}" method="post">
-			
 			<!-- Nombre del departamento -->
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
 				<input required type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
 			</div>
-			<!-- Id del departamento -->
-			<input type="hidden" th:field="*{id}" name="id" id="id">
-			
 			<!-- Guardar datos -->
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>
