@@ -5,4 +5,6 @@ import com.rapidpago.proyec1.Models.Employee;
 
 public interface EmployeeService extends GenericServices<Employee, Integer> {
 
+	
+
 }

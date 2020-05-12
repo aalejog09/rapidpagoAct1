@@ -1,61 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Person</title>
+	<meta charset="utf-8" />
+	<title>Spring Boot + JPA + Datatables</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="../js/DataTablesEmployee.js"></script>
 
-<!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
 </head>
-<body>
-
-	<div class="container">
-	<div><a href="../"><h2>Empleados Rapidpago </h2></a> </div>
-		<br> 
-		<div>
+<div>
 			<a href="/employee/save/0" class="btn btn-primary">Agregar</a>
 		</div>
-		<br>
-			<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Empleados</h2>
-				
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Genero</th>
-							<th>Numero de identificacion</th>
-							<th>Departamento</th>
-							<th>Experiencia</th>
-							<th>Direccion</th>
-							<th>Fecha de ingreso</th>
-							<th>Disponibilidad</th>
-							<th></th>
-				 			<th></th>
-				 		</tr>
-				 	</thead>
-				 	<tbody>
-				 		<tr th:each="employee : ${list}">
-				 		<!-- Datos personales del empleado -->
-				 			<td th:text="${employee.name}">
-				 			<td th:text="${employee.lastname}">
-				 			<td th:text="${employee.gender}">
-				 			<td th:text="${employee.identificationNum}">
-				 			<td th:text="${employee.department.name}">
-				 			<td th:text="${employee.experience.description}">
-				 			<td th:text="${employee.address}">
-				 			<td th:text="${employee.admissionDate}">
-				 			<td th:text="${employee.available}">
-				 			<td><a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Eliminar</a></td>
-				 			<td><a class="btn btn-info" th:href="@{/employee/save/{id}(id=${employee.id})}">Editar</a></td>
-				 	</tbody>
-					
-				</table>
-			</div>
-			
-			
-	</div>
+<body>
+	<h1>empleado</h1>
+	<table id="employeesTable" class="display">
+      
+       <!-- Header Table -->
+       <thead>
+            <tr>
+                <th>id </th>
+				<th>name </th>
+                <th>lastname </th>
+                <th>gender </th>
+                <th>identificationNum </th>
+                <th>department </th>
+                <th>experience </th>
+                <th>admisionDate </th>
+                <th>address </th>
+                <th>available </th>
+            </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+            <tr>
+                <th>id </th>
+				<th>name </th>
+                <th>lastname </th>
+                <th>gender </th>
+                <th>identificationNum </th>
+                <th>department </th>
+                <th>experience </th>
+                <th>admisionDate </th>
+                <th>address </th>
+                <th>available </th>
+            </tr>
+        </tfoot>
+    </table>
 </body>
 </html>

@@ -23,12 +23,15 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Datos personales</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Genero</th>
+							<th>Numero de identificacion</th>
 							<th>Departamento</th>
 							<th>Experiencia</th>
 							<th>Direccion</th>
 							<th>Fecha de ingreso</th>
-							<th>Estado</th>
+							<th>Disponibilidad</th>
 							<th></th>
 				 			<th></th>
 				 		</tr>
@@ -36,16 +39,17 @@
 				 	<tbody>
 				 		<tr th:each="employee : ${list}">
 				 		<!-- Datos personales del empleado -->
-				 			<td th:text="${person.name + ' ' 
-				 						 + person.lastname +' '
-				 						 + person.identificationNum}">
-				 			<td th:text="${department.name}">
-				 			<td th:text="${experience.description}">
-				 			<td th:text="${address}">
-				 			<td th:text="${admissionDate}">
-				 			<td th:text="${status}">
-				 			<td><a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${person.id})}">Eliminar</a></td>
-				 			<td><a class="btn btn-info" th:href="@{/employee/save/{id}(id=${person.id})}">Editar</a></td>
+				 			<td th:text="${employee.name}">
+				 			<td th:text="${employee.lastname}">
+				 			<td th:text="${employee.gender}">
+				 			<td th:text="${employee.identificationNum}">
+				 			<td th:text="${employee.department.name}">
+				 			<td th:text="${employee.experience.description}">
+				 			<td th:text="${employee.address}">
+				 			<td th:text="${employee.admissionDate}">
+				 			<td th:text="${employee.available}">
+				 			<td><a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Eliminar</a></td>
+				 			<td><a class="btn btn-info" th:href="@{/employee/save/{id}(id=${employee.id})}">Editar</a></td>
 				 	</tbody>
 					
 				</table>
