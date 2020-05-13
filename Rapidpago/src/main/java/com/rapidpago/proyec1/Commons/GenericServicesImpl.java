@@ -20,6 +20,7 @@ public abstract class GenericServicesImpl <Type, ID extends Serializable > imple
 	//metodo para Eliminar un objeto de una entidad.
 	public void delete (ID id) {
 		getDao().deleteById(id);
+		getDao().findById(id);
 	}
 	
 	//metodo para listar un objeto de una entidad mediante su identificador
@@ -40,5 +41,14 @@ public abstract class GenericServicesImpl <Type, ID extends Serializable > imple
 	
 	//metodo para obtener el repositorio de una entidad.
 	public abstract CrudRepository <Type, ID> getDao();
+	
+	public Type getAvailable(ID id) {
+		Optional<Type> obj = getDao().findById(id);
+		if(obj.isPresent()) {
+		return obj.get();
+		}
+		return null;
+	}
+	
 
 }

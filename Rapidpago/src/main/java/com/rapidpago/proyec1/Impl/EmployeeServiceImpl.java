@@ -21,6 +21,12 @@ public class EmployeeServiceImpl extends GenericServicesImpl<Employee, Integer> 
 		return employeeRepository;
 	}
 
+	@Override
+	public void set(String string, boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 

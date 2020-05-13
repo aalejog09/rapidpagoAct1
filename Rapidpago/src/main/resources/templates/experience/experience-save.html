@@ -5,25 +5,37 @@
 <title>Save - Experience</title>
 
 <!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
+	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+	<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
 </head>
 <body>
 	<div class="container">
-	<br>
+		<nav class="menuCSS3">
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png">
+				<h2 align="right">Empleados Rapidpago</h2></a>
+			</div>
+		</nav>
 		<!-- titulo de la pagina -->
 		<h2>Experciencia</h2>
 		<!-- Id de la experciencia -->
 		<input type="hidden" th:field="*{id}" name="id" id="id">
-		<form action="#" th:action="@{/experience/save}" th:object="${experience}" method="post">
-			
+		<form action="#" th:action="@{/experience/save}"
+			th:object="${experience}" method="post">
+
 			<!-- descripcion de la experciencia -->
 			<div class="form-group">
-				<label for="nombre">Descripcion</label>
-				<input required type="text" class="form-control" id="description" th:field="*{description}" name="description"> 
+				<label for="nombre">Descripcion</label> <input required type="text"
+					class="form-control" id="description" th:field="*{description}"
+					name="description">
 			</div>
 			<!-- Guardar datos -->
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>
 	</div>
 </body>
-</html> 
+<footer align="center">
+	<h6>Realizado por Andres Alejo</h6>
+</footer>
+</html>

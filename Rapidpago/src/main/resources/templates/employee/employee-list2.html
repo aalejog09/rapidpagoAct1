@@ -2,60 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Person</title>
+<title>Rapidpago-Experience List</title>
 
 <!--  Bootstrap CSS -->
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
 </head>
 <body>
-
 	<div class="container">
-	<div><a href="../"><h2>Empleados Rapidpago </h2></a> </div>
+	<div><a href="../"> <h2>Empleados Rapidpago </h2></a> </div>
 		<br> 
 		<div>
-			<a href="/employee/save/0" class="btn btn-primary">Agregar</a>
+			<a href="employee/save/0" class="btn btn-primary">Agregar</a>
 		</div>
 		<br>
 			<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
 			<div th:if="${!list.isEmpty()}">
 				<h2>Empleados</h2>
-				
 				<table class="table">
 					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Genero</th>
-							<th>Numero de identificacion</th>
-							<th>Departamento</th>
-							<th>Experiencia</th>
-							<th>Direccion</th>
-							<th>Fecha de ingreso</th>
-							<th>Disponibilidad</th>
-							<th></th>
-				 			<th></th>
-				 		</tr>
-				 	</thead>
+					<tr>
+						<th class="text-center" id="name">NAME</th>
+						<th class="text-center" id="lastname">LASTNAME</th>
+						<th class="text-center" id="gender">GENDER</th>
+						<th class="text-center" id="identificationNum">IDENTIFICATION_NUM
+						</th>
+						<th class="text-center" id="department">DEPARTMENT</th>
+						<th class="text-center" id="experience">EXPERIENCE</th>
+						<th class="text-center" id="admissionDate">ADMISSIONDATE</th>
+						<th class="text-center" id="address">ADDRESS</th>
+						<th class="text-center" id="available">AVAILABLE</th>
+					</tr>
+				</thead>
 				 	<tbody>
-				 		<tr th:each="employee : ${list}">
-				 		<!-- Datos personales del empleado -->
-				 			<td th:text="${employee.name}">
-				 			<td th:text="${employee.lastname}">
-				 			<td th:text="${employee.gender}">
-				 			<td th:text="${employee.identificationNum}">
-				 			<td th:text="${employee.department.name}">
-				 			<td th:text="${employee.experience.description}">
-				 			<td th:text="${employee.address}">
-				 			<td th:text="${employee.admissionDate}">
-				 			<td th:text="${employee.available}">
-				 			<td><a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Eliminar</a></td>
-				 			<td><a class="btn btn-info" th:href="@{/employee/save/{id}(id=${employee.id})}">Editar</a></td>
-				 	</tbody>
+					<tr th:each="employee :${list}">
+						<td th:text="${employee.name}">
+						<td th:text="${employee.lastname}">
+						<td th:text="${employee.gender}">
+						<td th:text="${employee.identificationNum}">
+						<td th:text="${employee.department.name}">
+						<td th:text="${employee.experience.description}">
+						<td th:text="${employee.admissionDate}">
+						<td th:text="${employee.address}">
+						<td th:text="${employee.available}">
+				</tbody>
 					
 				</table>
 			</div>
 			
 			
 	</div>
+
 </body>
 </html>

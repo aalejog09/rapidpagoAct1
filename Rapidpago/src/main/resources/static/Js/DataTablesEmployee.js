@@ -1,22 +1,32 @@
-$(document).ready( function () {
-	  $('#employeesTable').DataTable({
-			"sAjaxSource": "/employees",
-			"sAjaxDataProp": "",
-			"order": [[ 0, "asc" ]],
-			"aoColumns": [
-			    { "mData": "id"},
-		     	{ "mData": "name" },
-				{ "mData": "lastName" },
-				{ "mData": "gender" },
-				{ "mData": "identificationNum" },
-				{ "mData": "department" },
-				{ "mData": "experience" },
-				{ "mData": "admisionDate" },
-				{ "mData": "address" },
-				{ "mData": "available" }
-				
-			]
-	 })
+
+$(document).ready(function() {
+    var table = $('#employeesTable').DataTable({
+    	"columns":[
+    	{ 
+    		"employees" : "name"
+        }, {
+            "employees" : "lastName"
+        }, {
+            "employees" : "gender"
+        }, {
+            "employees" : "identificationNum"
+        }, {
+            "employees" : "department"
+        }, {
+            "employees" : "experience"
+        }, {
+            "employees" : "admisionDate"
+        }, {
+            "employees" : "address"
+        }, {
+            "employees" : "available"
+        }, {
+            "employees" : "actions"
+        }, {
+            "employees" : "actions"
+        }, {
+            "employees" : "actions"
+        }  ]
+ 
+    })
 });
-
-

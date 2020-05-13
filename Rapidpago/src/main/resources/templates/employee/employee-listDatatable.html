@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Spring Boot + JPA + Datatables</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="../js/DataTablesEmployees.js"></script>
+
+</head>
+<body>
+<div class="container">
+		<div>
+			<div align="left">
+				<h2 align="right" >Empleados Rapidpago</h2>	
+			</div>
+			<div align="left"> 
+				<a  href="/index"><img  src="/img/logo_rp.png"></a>
+			</div>
+		
+			<a href="/employee/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+		
+
+	<h1>empleado</h1>
+	<table id="employeesTable" class="table table-bordered table-condensed  display responsive">
+      
+       <!-- Header Table -->
+       <thead>
+            <tr>
+                <th class="text-center" id="name">NAME</th>
+				<th class="text-center" id="lastname">LASTNAME </th>
+                <th class="text-center" id="gender">GENDER </th>
+                <th class="text-center" id="identificationNum">IDENTIFICATION_NUM </th>
+                <th class="text-center" id="department">DEPARTMENT </th>
+                <th class="text-center" id="experience">EXPERIENCE </th>
+                <th class="text-center" id="admissionDate">ADMISSIONDATE </th>
+                <th class="text-center" id="address">ADDRESS </th>
+                <th class="text-center" id="available">AVAILABLE </th>
+            </tr>
+        </thead>
+        <tbody id="employee_data">
+        
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

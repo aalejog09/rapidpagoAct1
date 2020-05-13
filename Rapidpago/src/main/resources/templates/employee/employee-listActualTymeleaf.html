@@ -4,29 +4,32 @@
 <head>
 <meta charset="utf-8" />
 <title>Lista de Empleados</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <script
-	src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
+	src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<LINK rel=StyleSheet href="/css/nav-var.css" type="text/css">
 <link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
 	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
-<script src="../js/DataTablesEmployee.js"></script>
-<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
+
 </head>
 
 <body>
 	<div class="container">
-		<nav class="menuCSS3">
+		<div>
 			<div align="left">
-				<a href="/index"><img src="/img/logo_rp.png">
-				<h2 align="right">Empleados Rapidpago</h2></a>
+				<h2 align="right">Empleados Rapidpago</h2>
 			</div>
-		</nav>
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png"></a>
+			</div>
+		</div>
 
 		<h1>Lista de Empleados</h1>
 		<div>
@@ -36,9 +39,9 @@
 		<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
 		<div th:if="${!list.isEmpty() }">
 			<h2>Empleados</h2>
-			<table id="employeesTable" class="table  table-hover table-sm  display responsive">
+			<table id="employeesTable" class="table   display responsive">
 				<!-- Header Table -->
-				<thead class="thead-dark">
+				<thead>
 					<tr>
 						<th class="text-center">Nombres</th>
 						<th class="text-center">Apellidos</th>
@@ -48,10 +51,9 @@
 						<th class="text-center">Nivel de experiencia</th>
 						<th class="text-center">Fecha de ingreso</th>
 						<th class="text-center">Direccion</th>
-						<th class="text-center">Estado</th>
-						<th class="text-center"></th>
-						<th class="text-center">Acciones</th>
-						<th class="text-center"></th>
+						<th class="text-center">Available</th>
+<!-- 						<th class="text-center">Acciones</th> -->
+
 					</tr>
 				</thead>
 				<tbody id="employee_data">
@@ -65,21 +67,14 @@
 						<td th:text="${employee.admissionDate}">
 						<td th:text="${employee.address}">
 						<td th:text="${employee.available}">
-						<td><a class="btn btn-info"
-							th:href="@{/employee/save/{id}(id=${employee.id})}"> Editar</a></td>
-						<td><a class="btn btn-warning"
-							th:href="@{/employee/available/{id}(id=${employee.id})}">Habilitar/Deshabilitar
-						</a></td>
-						<td><a class="btn btn-danger"
-							th:href="@{/employee/delete/{id}(id=${employee.id})}">Eliminar
-						</a></td>
+<!-- 						<td><a class="btn btn-info" -->
+<!-- 							th:href="@{/employee/save/{id}(id=${employee.id})}"> Editar</a> -->
+<!-- 						<td><a class="btn btn-danger" -->
+<!-- 							th:href="@{/employee/delete/{id}(id=${employee.id})}">Eliminar -->
+<!-- 						</a> -->
 				</tbody>
 			</table>
 		</div>
 	</div>
-	
 </body>
-<footer align="center">
-	<h6>Realizado por Andres Alejo</h6>
-</footer>
 </html>

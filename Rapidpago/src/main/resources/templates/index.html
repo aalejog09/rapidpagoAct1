@@ -5,17 +5,42 @@
 <title>Empleados Rapidpago</title>
 
 <!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
+	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
 </head>
 <body>
 	<div class="container">
-			<h2>Empleados Rapidpago</h2>
-			
-			<div><a href="/employee">EMPLEADOS</a></div>
-			
-			<div><a href="/department">DEPARTAMENTOS</a></div>
-			
-			<div><a href="/experience">EXPERIENCIA</a></div>
+
+
+		<nav class="menuCSS3">
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png">
+				<h2 align="right">Empleados Rapidpago</h2>
+				</a>
+			</div>
+			<ul>
+				<li><a href="#">EMPLEADOS</a>
+					<ul>
+						<li><a href="/employee">LISTA DE EMPLEADOS</a></li>
+						<li><a href="/employee/save/0">AGREGAR EMPLEADOS</a></li>
+					</ul></li>
+				<li><a href="#">DEPARTAMENTOS</a>
+					<ul>
+						<li><a href="/department">LISTA DE DEPARTAMENTOS</a></li>
+						<li><a href="/department/save/0">AGREGAR DEPARTAMENTOS</a></li>
+					</ul></li>
+				<li><a href="#">NIVELES DE EXPERIENCIA</a>
+					<ul>
+						<li><a href="/experience">LISTA DE NIVELES DE EXPERIENCIA</a></li>
+						<li><a href="/experience/save/0">AGREGAR NIVEL DE EXPERIENCIA</a></li>
+					</ul></li>
+			</ul>
+		</nav>
 	</div>
-</body>
+</body>	
+<footer align="center">
+		<p>Realizado por Andres Alejo Actividad - Rapid Pago</p>
+	</footer>
+
 </html>

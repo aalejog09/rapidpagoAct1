@@ -5,24 +5,36 @@
 <title>Save - Department</title>
 
 <!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
+	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
 </head>
 <body>
 	<div class="container">
-	<br>
+		<div>
+			<div align="left">
+				<h2 align="right">Empleados Rapidpago</h2>
+			</div>
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png"></a>
+			</div>
+		</div>
 		<!-- titulo de la pagina -->
 		<h2>Agregar Departamento</h2>
 		<!-- Id del departamento -->
 		<input type="hidden" th:field="*{id}" name="id" id="id">
-		<form action="#" th:action="@{/department/save}" th:object="${department}" method="post">
+		<form action="#" th:action="@{/department/save}"
+			th:object="${department}" method="post">
 			<!-- Nombre del departamento -->
 			<div class="form-group">
-				<label for="nombre">Nombre</label>
-				<input required type="text" class="form-control" id="name" th:field="*{name}" name="name"> 
+				<label for="nombre">Nombre</label> <input required type="text"
+					class="form-control" id="name" th:field="*{name}" name="name">
 			</div>
 			<!-- Guardar datos -->
 			<button type="submit" class="btn btn-success">Guardar</button>
 		</form>
 	</div>
 </body>
-</html> 
+<footer align="center">
+		<h6>Realizado por Andres Alejo</h6>
+</footer>
+</html>

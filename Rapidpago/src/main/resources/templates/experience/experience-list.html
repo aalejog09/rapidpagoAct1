@@ -5,39 +5,52 @@
 <title>Rapidpago-Experience List</title>
 
 <!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
+	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
 </head>
 <body>
-
 	<div class="container">
-	<div><a href="../"><h2>Empleados Rapidpago </h2></a> </div>
-		<br> 
+		<nav class="menuCSS3">
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png">
+					<h2 align="right">Empleados Rapidpago</h2></a>
+			</div>
+		</nav>
+		<br>
 		<div>
 			<a href="experience/save/0" class="btn btn-primary">Agregar</a>
 		</div>
 		<br>
-			<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Experciencia</h2>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Descripcion</th>
-							<th></th>
-				 			<th></th>
-				 		</tr>
-				 	</thead>
-				 	<tbody>
-				 		<tr th:each="experience : ${list}">
-				 			<td th:text="${experience.description}">
-				 			<td><a class="btn btn-danger" th:href="@{/experience/delete/{id}(id=${experience.id})}">Eliminar</a></td>
-				 			<td><a class="btn btn-info" th:href="@{/experience/save/{id}(id=${experience.id})}">Editar</a></td>
-				 	</tbody>
-					
-				</table>
-			</div>
-			
-			
+		<h2 th:if="${list.isEmpty()}">No hay datos para mostrar.</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Experciencia</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Descripcion</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="experience : ${list}">
+						<td th:text="${experience.description}">
+						<td><a class="btn btn-info"
+							th:href="@{/experience/save/{id}(id=${experience.id})}">Editar</a></td>
+							
+<!-- 							comentada por temas de integridad de tablas -->
+<!-- 						<td><a class="btn btn-danger" -->
+<!-- 							th:href="@{/experience/delete/{id}(id=${experience.id})}">Eliminar</a></td> -->
+				</tbody>
+
+			</table>
+		</div>
+
+
 	</div>
+	
 </body>
+<footer align="center">
+	<h6>Realizado por Andres Alejo</h6>
+</footer>
 </html>

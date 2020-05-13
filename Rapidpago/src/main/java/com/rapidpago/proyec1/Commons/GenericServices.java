@@ -16,4 +16,8 @@ public interface GenericServices <Type, ID extends Serializable>{
 	
 	//metodo para listar los objetos de una entidad.
 	List <Type> getAll();
+	
+	
+
+
 }

@@ -5,119 +5,122 @@
 <title>Save - Employee</title>
 
 <!--  Bootstrap CSS -->
-<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<link href="../static/bootstrap-4.4.1-dist/css/bootstrap.css"
+	rel="stylesheet" th:href="@{/bootstrap-4.4.1-dist/css/bootstrap.css}">
+<LINK REL=StyleSheet HREF="/css/nav-var.css" TYPE="text/css">
 </head>
 <body>
 	<div class="container">
-	<br>
+		<nav class="menuCSS3">
+			<div align="left">
+				<a href="/index"><img src="/img/logo_rp.png">
+				<h2 align="right">Empleados Rapidpago</h2></a>
+			</div>
+		</nav>
 		<!-- titulo de la pagina -->
 		<h2>AGREGAR EMPLEADO</h2>
 
-		<div class="card bg-light " >
+		<div class="card bg-light ">
 			<div class="card-header bg-dark text-white" th:text="${Title}"></div>
 			<div class="card-body">
-				<form th:action="@{/employee/save}" th:object="${employee}" method="post">
+				<form th:action="@{/employee/save}" th:object="${employee}"
+					method="post">
+					
+					<!-- Id de la persona  -->
+			<input type="hidden" th:field="*{id}" name="id" id="id">
 					<!-- Datos Personales del empleado -->
-				<div class="form-group row">
-						<label class="col-md-2" for="name">Nombres</label>
-						<input required th:field="*{name}" 
-							   type="text" 
-							   class="form-control form-control-sm col-md-6" id="name" 
-							   placeholder="Nombres del empleado">
+					<div class="form-group row">
+						<label class="col-md-2" for="name">Nombres</label> <input required
+							th:field="*{name}" type="text"
+							class="form-control form-control-sm col-md-6" id="name"
+							placeholder="Nombres del empleado">
 					</div>
 					<!-- Apellidos de la persona -->
 					<div class="form-group row">
-						<label for="lastname" class="col-md-2">Apellidos</label> 
-						<input required th:field="*{lastname}" 
-							   type="text"
-							   class="form-control form-control-sm col-md-6"
-							   id="person.lastname" placeholder="Apellidos de la persona">
+						<label for="lastname" class="col-md-2">Apellidos</label> <input
+							required th:field="*{lastname}" type="text"
+							class="form-control form-control-sm col-md-6"
+							id="person.lastname" placeholder="Apellidos de la persona">
 					</div>
 
 					<!-- Genero de la persona -->
-					
-					<label for="gender">Genero de la persona</label> 
-							<select class="form-control form-control-sm col-md-6" 
-									id="gender" 
-									th:field="*{gender}">
-							<option th:value="Masculino" 
-									th:text="Masculino" />
-							<option th:value="Femenino" 
-									th:text="Femenino"/>
-						</select>
-						
+
+					<label for="gender">Genero de la persona</label> <select
+						class="form-control form-control-sm col-md-6" id="gender"
+						th:field="*{gender}">
+						<option th:value="Masculino" th:text="Masculino" />
+						<option th:value="Femenino" th:text="Femenino" />
+					</select>
+
 					<!-- Numero de identificacion de la persona -->
 
 					<div class="form-group row">
 						<label class="col-md-2" for="identificationNum"
-							 id="identificationNum">Numero de identificacion</label>
-							<input required th:field="*{identificationNum}" 
-							type="number" class="form-control form-control-sm col-md-6"
-							id="identificationNum" placeholder="Numero de identificacion del empleado"> <small></small>
+							id="identificationNum">Numero de identificacion</label> <input
+							 required  th:field="*{identificationNum}" type="number"
+							class="form-control form-control-sm col-md-6"
+							id="identificationNum" 
+							placeholder="identificacion del empleado (max 15 digitos numericos)" min=1 max=99999999> <small></small>
 					</div>
-					
-					 <h3>Datos laborales</h3>
+
+					<h3>Datos laborales</h3>
 					<!--Department donde labora el empleado -->
-					
+
 					<div class="form-group">
-						<label for="nombre">Departamento</label> 
-							<select class="form-control form-control-sm col-md-6" 
-							id="employee.department" th:field="*{department}" >
+						<label for="nombre">Departamento</label> <select
+							class="form-control form-control-sm col-md-6"
+							id="employee.department" th:field="*{department}">
 							<option th:each="department: ${departments}"
-							th:value="${department.id}"
-							th:text="${department.name}"/>
+								th:value="${department.id}" th:text="${department.name}" />
 						</select>
-						
+
 					</div>
-					
+
 					<!-- Experiencia del empleado -->
 					<div class="form-group">
-						<label for="nombre">Experiencia</label> 
-							<select class="form-control form-control-sm col-md-6" 
-							id="employee.experience" th:field="*{experience}" >
+						<label for="nombre">Experiencia</label> <select
+							class="form-control form-control-sm col-md-6"
+							id="employee.experience" th:field="*{experience}">
 							<option th:each="experience: ${experiences}"
-							th:value="${experience.id}"
-							th:text="${experience.description}"/>
+								th:value="${experience.id}" th:text="${experience.description}" />
 						</select>
 					</div>
-					
+
 					<!-- Direccion  del empleado -->
 					<div class="form-group row">
-						<label class="col-md-2" for="address">Direccion del empleado</label>
-						<input type="text"
-							   th:field="*{address}"
-							   class="form-control form-control-sm col-md-6"
-							   id="address"
-							   placeholder="Direccion  del empleado"> <small></small>
+						<label class="col-md-2" for="address">Direccion del
+							empleado</label> <input type="text" th:field="*{address}"
+							class="form-control form-control-sm col-md-6" id="address"
+							placeholder="Direccion  del empleado"> <small></small>
 					</div>
-					
+
 					<!-- Disponibilidad del empleado -->
-					<label for="available">Disponibilidad del empleado</label> 
-							<select class="form-control form-control-sm col-md-6" 
-									id="available" 
-									th:field="*{available}">
-							<option th:value="1" 
-									th:text="Habilitado" />
-							<option th:value="0" 
-									th:text="Deshabilitado"/>
-							</select>
-					
+					<label for="available">Disponibilidad del empleado</label> <select
+						class="form-control form-control-sm col-md-6" id="available"
+						th:field="*{available}">
+						<option th:value="1" th:text="Activo" />
+						<option th:value="0" th:text="Inactivo" />
+					</select>
+
 					<!-- Fecha de ingreso del empleado -->
 					<div class="form-group row">
-						<label class="col-md-2" for="admissionDate" >Fecha de ingreso del empleado</label>
-						<input type="date" name="admissionDate" 
-						step="1" min="2007-01-01" max="2050-12-31" value="2020-01-01"
-						th:field="*{admissionDate}"
-						placeholder="AAAA-MM-DD">
+						<label class="col-md-2" for="admissionDate">Fecha de
+							ingreso del empleado</label> <input type="date" name="admissionDate"
+							step="1" min="2000-01-01" max="2050-12-31" value="2020-01-01"
+							th:field="*{admissionDate}" placeholder="AAAA-MM-DD">
 					</div>
-					
+
 					<div class="card-footer bg-dark">
-						<input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+						<input type="submit" class="btn btn-primary btn-sm"
+							value="Guardar" />
 					</div>
-					
+
 				</form>
-				</div>
 			</div>
+		</div>
 	</div>
 </body>
-</html> 
+<footer align="center">
+	<h6>Realizado por Andres Alejo</h6>
+</footer>
+</html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rapidpago.proyec1.Models.Employee;
 import com.rapidpago.proyect1.Services.EmployeeService;
 
+
 @RestController
 public class EmployeeRestController {
 
@@ -20,12 +21,12 @@ public class EmployeeRestController {
 		EmployeeService employeeServices;
 		
 		
-		@RequestMapping ( path = " /employees "  ,method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+		@RequestMapping ( path = " / employee "  ,method=RequestMethod.GET, produces = "application/json")
 		public  List<Employee>  getAllEmployees () {
 			return employeeServices.getAll();
 		}
 		
-	    @RequestMapping ( value  =  " /employee/{id} " , method  =  RequestMethod . GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	    @RequestMapping ( value  =  " / employee / {id} " , method  =  RequestMethod . GET, produces = "application/json")
 		public  Employee  getEmployeeById ( @PathVariable("id") Integer id  ) {
 			return employeeServices.get(id);
 		}

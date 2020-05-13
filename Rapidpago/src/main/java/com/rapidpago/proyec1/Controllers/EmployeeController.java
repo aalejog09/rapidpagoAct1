@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rapidpago.proyec1.Models.Department;
 import com.rapidpago.proyec1.Models.Employee;
@@ -37,12 +36,16 @@ public class EmployeeController {
 		@RequestMapping(value = "/employee", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 		public String EmployeeList(Model model) {
 			model.addAttribute("list", employeeServices.getAll());
+			
 			return "employee/employee-list";
+			
+			
 			//Vista a retornar= lista de empleado.
 		}
 		
 		@RequestMapping(value = "/employee/{id}" , method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 		public Employee getEmployeeById(@PathVariable("id") Integer id){
+			
 			return employeeServices.get(id);
 		}
 		
@@ -82,6 +85,21 @@ public class EmployeeController {
 		@GetMapping("/employee/delete/{id}")
 		public String deleteEmployee(@PathVariable Integer id, Model model) {
 			employeeServices.delete(id);
+			return "redirect:/employee";
+		}
+		
+		@GetMapping("/employee/available/{id}")
+		public String disableEmployee(@PathVariable Integer id, Model model) {
+			employeeServices.get(id);
+			Employee employee= employeeServices.get(id);
+			if(employee.getAvailable()== true) {
+				employee.setAvailable(false);
+			}else if(employee.getAvailable()== false){
+				employee.setAvailable(true);
+			}
+			
+			//employeeServices.delete(id);
+			employeeServices.save(employee);
 			return "redirect:/employee";
 		}
 		
